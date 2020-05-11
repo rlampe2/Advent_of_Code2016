@@ -10,8 +10,8 @@ from enum import IntEnum
 class Direction(IntEnum):
     NORTH = 0
     EAST = 1
-    WEST = 2
-    SOUTH = 3
+    WEST = 3
+    SOUTH = 2
 
 # Open the file for reading input
 # Use the with syntax so that the file closes when finished
