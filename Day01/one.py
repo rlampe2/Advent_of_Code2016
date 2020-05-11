@@ -20,8 +20,8 @@ with open('input.txt', 'r') as file:
     inStr = file.read()
 
 #Treat each direction as incrementing y or x distance.
-y = 0;
-x = 0;
+y = 0
+x = 0
 #Array of strings representing direction tokens
 dirTokens = inStr.split(", ")
 
