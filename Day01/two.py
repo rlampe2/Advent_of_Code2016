@@ -65,5 +65,4 @@ for movement in dirTokens:
 
 
 print ("The coords are (%d ,%d) to (%d, %d)" % (startingX, startingY, x, y))
-print ("The manahttan distance is %d" % ( (x - startingX) + (y - startingY)))
-# NOT 166
+print("The distance from the origin to the location visited twice is: %d" % ( abs(startingY) + abs(startingX) ))
