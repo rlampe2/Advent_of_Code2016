@@ -29,6 +29,8 @@ crossed = False
 facing = Direction.NORTH
 
 for movement in dirTokens:
+    if crossed:
+        break
     distance = int(movement[1:])
     # Orient
     if movement[0] == 'R':
@@ -40,29 +42,23 @@ for movement in dirTokens:
 
         if facing == Direction.NORTH:
             y += 1
-            print("N")
         elif facing == Direction.EAST:
             x += 1
-            print("E")
         elif facing == Direction.SOUTH:
             y -= 1
         else:
             x -= 1
-            print("W")
-
         if not crossed:
             location = str(x) + "," + str(y)
-            print(location)
             # check to see if our element is in the dictionary
             if location in visited:
-                print ("HERE")
                 startingX = int(location.split(",")[0])
                 startingY = int(location.split(",")[1])
                 crossed = True
-
+                break
             else:
                 visited[location] = 1
 
 
-print ("The coords are (%d ,%d) to (%d, %d)" % (startingX, startingY, x, y))
+print ("The coords are (0 ,0) to (%d, %d)" % (startingX, startingY))
 print("The distance from the origin to the location visited twice is: %d" % ( abs(startingY) + abs(startingX) ))
