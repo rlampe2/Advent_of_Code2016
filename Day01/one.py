@@ -45,4 +45,4 @@ for movement in dirTokens:
         x -= distance
 
 print ("The coords are (0,0) to (%d, %d)" % (x, y))
-print ("The manahttan distance is %d" % (x + y))
+print ("The manahttan distance is %d" % (abs(x) + abs(y)))
