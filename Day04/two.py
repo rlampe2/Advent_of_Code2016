@@ -27,9 +27,15 @@ for room in roomList:
     # Need to stay in ascii range:
     alph = list(string.ascii_lowercase)
     roomLetters = list(roomName)
+    decrypted = ""
+
     for c in roomLetters:
         if c != ' ':
             newIndex = (alph.index(c) + shiftDistance) % len(alph)
             c = alph[newIndex]
-    roomName = "".join(roomLetters)
-    print("%s - %s" % (roomName, checkSum) )
+        decrypted = decrypted + c
+    # Uncomment to print out all the
+    # print("%s - %s (%s)" % (decrypted, checkSum, roomName) )
+    # Find string that has North in it
+    if "north" in decrypted:
+        print("%s - %s (%s)" % (decrypted, checkSum, roomName) )
