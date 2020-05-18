@@ -7,7 +7,7 @@ import hashlib
 
 # Testing examples given in instructions to check hashing algorithm is the same
 # print(hashlib.md5(b"abc3231929").hexdigest()) # Should start as 000001
-print(hashlib.md5(b"abc5017308").hexdigest()) # Should start as 000008
+# print(hashlib.md5(b"abc5017308").hexdigest()) # Should start as 000008
 
 realPasswordLength = 8
 currentLength = 0
