@@ -31,19 +31,15 @@ def reflection(string):
 
 def parse_rip(string):
     rip = []
-    startInc = 0
-    endExcl = -1
-    for i in range(len(string)):
-        if string[i] == '[':
-            endExcl = i
-            rip.append(string[startInc: endExcl])
-        if string[i] == ']':
-            if i < len(string) - 1:
-                if string[i + 1] != '[':
-                    startInc = i + 1
+    #Remove HNets
+    string = re.sub("[\(\[].*?[\)\]]", ',', string)
+    rip = string.split(',')
     return rip
 
-def tls_ip(string):
+# Determine if an IP has a valid tls
+
+
+def tls_ip(ip):
     validHNet = True
     validABBA = False
     hypernets = parse_hypernets(ip)
@@ -69,43 +65,6 @@ with open('input.txt', 'r') as file:
 numTLS = 0
 
 for ip in ips:
-    validHNet = True
-    validABBA = False
-    hypernets = parse_hypernets(ip)
-    for net in hypernets:
-        if reflection(net):
-            validHNet = False
-            break
-    if validHNet: # Proceed to check for ABBA
-        rips = parse_rip(ip)
-        for rip in rips:
-            if reflection(rip):
-                validABBA = True
-
-    if validHNet and validABBA:
+    if tls_ip(ip):
         numTLS += 1
 print("The number of valid TLS ips is : %d" % numTLS)
-
-
-
-#NOt 65
-#NOT 74
-# Method testing:
-# test = "abba[mnop]qrst[hello]asdf[abba]asdf[asfacca][hell][elle]"
-#
-# inBrack = parse_hypernets(test)
-#
-# print (inBrack)
-#
-# for brack in inBrack:
-#     if reflection(brack):
-#         print (brack)
-
-test = "abba[asdf]acd[]affaasdf[asdf]aaaa[aaaa]"
-outBrack = parse_rip(test)
-print(outBrack)
-
-for o in outBrack:
-    if reflection(o):
-        print (o)
-
