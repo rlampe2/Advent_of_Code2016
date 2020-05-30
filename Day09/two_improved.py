@@ -46,11 +46,9 @@ while instr_start < len(compressed):
 
     # pull out the instruction for later
     instructions.append(compressed[instr_start + 1: instr_end])
-#    print(compressed[instr_start + 1: instr_end])
     # Move up our instruction start to right after end of the previous one
     instr_start = instr_end + 1
-#print(frequency)
-#print(instructions)
+
 # Now that we have a list of instructions, and indexes, we go backwards through our compressed list
 # and each time we hit a ) we read our instruction and multiply based on that instruction
 i = len(compressed) - 1
@@ -72,5 +70,4 @@ while i > 0:
     i -= 1
 
 
-print(frequency)
-print(numpy.sum(frequency))
+print("The decompressed files is %d chars long!" % numpy.sum(frequency))
