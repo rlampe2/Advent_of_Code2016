@@ -11,12 +11,12 @@ def insert_substring(string, substring, index_to_place_before):
 # Tests:
 #compressed = 'X(8x2)(3x3)ABCY'
 #compressed = '(27x12)(20x12)(13x14)(7x10)(1x12)A'
-compressed = '(25x3)(3x3)ABC(2x3)XY(5x2)PQRSTX(18x9)(3x2)TWO(5x7)SEVEN'
+#compressed = '(25x3)(3x3)ABC(2x3)XY(5x2)PQRSTX(18x9)(3x2)TWO(5x7)SEVEN'
 
-#
-# with open('input.txt', 'r') as file:
-#     # Read in the file as one string, removing all newlines
-#     compressed = file.read().replace('\n', '').replace('\r', '').replace(' ', '')
+
+with open('input.txt', 'r') as file:
+    # Read in the file as one string, removing all newlines
+    compressed = file.read().replace('\n', '').replace('\r', '').replace(' ', '')
 
 # Cursor positions
 instr_start = 0
