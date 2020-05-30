@@ -12,19 +12,22 @@ def insert_substring(string, substring, index_to_place_before):
     # FTD Error handling for index out of bounds...?
     return string[:index_to_place_before] + substring + string[index_to_place_before:]
 
-compressed = 'A(2x2)BCD(2x2)EFG'
+# Tests:
+#compressed = 'A(2x2)BCD(2x2)EFG'
 #compressed = 'X(8x2)(3x3)ABCY'
 #compressed = '(6x1)(1x3)A'
-#
-# with open('input.txt', 'r') as file:
-#     # Read in the file as one string, removing all newlines
-#     compressed = file.read().replace('\n', '').replace('\r', '').replace(' ', '')
+
+
+with open('input.txt', 'r') as file:
+    # Read in the file as one string, removing all newlines
+    compressed = file.read().replace('\n', '').replace('\r', '').replace(' ', '')
 # Cursor positions
 instr_start = 0
 instr_end = 0
 m = 0
 end_of_comp = False
 while not end_of_comp:  # Uncertain if this handles edge cases with compressions at the very end of a file
+
 
     # Find the next instruction
     while compressed[instr_start] != '(':
@@ -57,6 +60,9 @@ while not end_of_comp:  # Uncertain if this handles edge cases with compressions
     # Start looking for the next instruction after the substring we've added
     instr_start = insertion_location
     instr_end = instr_start
+
+    if instr_start == len(compressed):
+        end_of_comp = True
 
 print("The number of chars in uncompressed is to %d" % len(compressed))
 print(compressed)
